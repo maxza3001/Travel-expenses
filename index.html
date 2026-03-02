@@ -53,6 +53,18 @@
   position: relative;
 }
 
+/* กระดาษ A4 แนวนอน (Landscape) */
+.a4-landscape-paper {
+  width: 297mm !important;
+  min-height: 210mm !important;
+  padding: 12mm 15mm !important;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  position: relative;
+}
+
 @media print {
   @page {
     size: A4;
@@ -197,6 +209,7 @@ font-size: 0.875rem;
 <button onclick="showPage('form')" class="page-tab px-4 py-3 font-semibold border-b-2 border-blue-600 text-blue-600 text-sm whitespace-nowrap" data-page="form"> 📋 ฟอร์มกรอก </button>
 <button onclick="showPage('document')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="document"> 📄 เอกสารส่วนที่ 1 </button>
 <button onclick="showPage('document2')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="document2"> 📄 เอกสารส่วนที่ 2 </button>
+<button onclick="showPage('document3')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="document3"> 📄 เอกสารส่วนที่ 3 </button>
 <button onclick="showPage('approval')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="approval"> ✅ ฟอร์มอนุมัติ </button>
 <button onclick="showPage('tracking')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="tracking"> 📊 ติดตามสถานะ </button>
 </div>
@@ -994,6 +1007,228 @@ font-size: 0.875rem;
   </div>
 </div>
 
+
+<div id="document3-page" class="page-content hidden py-4 px-2">
+  <div class="print-button-container max-w-5xl mx-auto mb-4 flex gap-2 justify-end">
+    <button onclick="printDocument('document3-page', 'landscape')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
+      🖨️ พิมพ์แนวนอน
+    </button>
+  </div>
+  
+  <div class="print-container a4-landscape-paper text-[11pt] leading-tight text-black flex flex-col" style="height: 210mm; overflow: hidden; font-family: 'THSarabunIT9', 'Sarabun', sans-serif;">
+    
+    <div class="w-full text-right mb-1">
+      <span>แบบ ๘๗๐๘</span><br>
+      <span>ส่วนที่ ๒</span>
+    </div>
+    
+    <div class="w-full text-center text-[11pt] mb-3">
+      <span>หลักฐานการจ่ายเงินค่าใช้จ่ายในการเดินทางไปราชการ</span>
+    </div>
+    
+    <div class="flex flex-col gap-1 mb-3">
+      <div class="flex items-end gap-2">
+        <span>ชื่อส่วนราชการ</span>
+        <span contenteditable="true" class="editable-field text-center flex-1 border-b border-dotted border-gray-400" id="doc3-department"></span>
+        <span>จังหวัด</span>
+        <span contenteditable="true" class="editable-field text-center w-[200px] border-b border-dotted border-gray-400"></span>
+      </div>
+      <div class="flex items-end gap-2 mt-1">
+        <span>ประกอบใบเบิกค่าใช้จ่ายในการเดินทางของ</span>
+        <span contenteditable="true" class="editable-field text-center flex-1 border-b border-dotted border-gray-400">-</span>
+        <span>ลงวันที่</span>
+        <span contenteditable="true" class="editable-field text-center w-[100px] border-b border-dotted border-gray-400">-</span>
+        <span>เดือน</span>
+        <span contenteditable="true" class="editable-field text-center w-[150px] border-b border-dotted border-gray-400">-</span>
+        <span>พ.ศ.</span>
+        <span contenteditable="true" class="editable-field text-center w-[100px] border-b border-dotted border-gray-400">-</span>
+      </div>
+    </div>
+
+    <table class="w-full border-collapse border border-black text-center mb-0 text-[11pt] table-fixed">
+      <thead>
+        <tr>
+          <th class="border border-black font-normal p-1 w-12" rowspan="2">ลำดับ<br>ที่</th>
+          <th class="border border-black font-normal p-1 w-36" rowspan="2">ชื่อ</th>
+          <th class="border border-black font-normal p-1 w-24" rowspan="2">ตำแหน่ง</th>
+          <th class="border border-black font-normal p-1" colspan="4">ค่าใช้จ่าย</th>
+          <th class="border border-black font-normal p-1 w-24" rowspan="2">รวม</th>
+          <th class="border border-black font-normal p-1 w-24" rowspan="2">ลายมือชื่อ<br>ผู้รับเงิน</th>
+          <th class="border border-black font-normal p-1 w-24" rowspan="2">วัน เดือน ปี<br>ที่รับเงิน</th>
+          <th class="border border-black font-normal p-1 w-32" rowspan="2">หมายเหตุ</th>
+        </tr>
+        <tr>
+          <th class="border border-black font-normal p-1 w-20">ค่าเบี้ยเลี้ยง</th>
+          <th class="border border-black font-normal p-1 w-20">ค่าเช่าที่พัก</th>
+          <th class="border border-black font-normal p-1 w-20">ค่าพาหนะ</th>
+          <th class="border border-black font-normal p-1 w-20">ค่าใช้จ่ายอื่น</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="h-[30px] expense-row">
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          
+          <td class="border border-black expense-input meal-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input lodging-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input transport-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input other-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black row-total overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+        </tr>
+        <tr class="h-[30px] expense-row">
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black expense-input meal-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input lodging-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input transport-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input other-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black row-total overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+        </tr>
+        <tr class="h-[30px] expense-row">
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black expense-input meal-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input lodging-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input transport-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input other-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black row-total overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+        </tr>
+        <tr class="h-[30px] expense-row">
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black expense-input meal-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input lodging-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input transport-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input other-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black row-total overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+        </tr>
+        <tr class="h-[30px] expense-row">
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black expense-input meal-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input lodging-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input transport-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input other-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black row-total overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+        </tr>
+        <tr class="h-[30px] expense-row">
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black expense-input meal-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input lodging-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input transport-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input other-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black row-total overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+        </tr>
+        <tr class="h-[30px] expense-row">
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black expense-input meal-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input lodging-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input transport-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input other-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black row-total overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+        </tr>
+        <tr class="h-[30px] expense-row">
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black whitespace-normal break-words p-1 text-center align-middle leading-tight text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black expense-input meal-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input lodging-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input transport-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black expense-input other-input overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black row-total overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+        </tr>
+        
+        <tr class="h-[32px] align-middle">
+          <td class="border border-black border-r-0 overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
+          <td class="border border-black border-l-0 text-right pr-4" colspan="2">รวมเงิน</td>
+          <td class="border border-black text-right px-2 grand-meal-total overflow-hidden whitespace-nowrap text-ellipsis text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black text-right px-2 grand-lodging-total overflow-hidden whitespace-nowrap text-ellipsis text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black text-right px-2 grand-transport-total overflow-hidden whitespace-nowrap text-ellipsis text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black text-right px-2 grand-other-total overflow-hidden whitespace-nowrap text-ellipsis text-[9pt]" contenteditable="true"></td>
+          <td class="border border-black text-right px-2 grand-total overflow-hidden whitespace-nowrap text-ellipsis text-[11pt]" contenteditable="true"></td>
+          <td class="border-t border-black" colspan="3">
+             <div class="flex items-center px-2">
+                <span>ตามสัญญาเงินยืมเลขที่</span>
+                <span contenteditable="true" class="editable-field flex-1 text-center border-b border-dotted border-gray-400"></span>
+                <span>วันที่</span>
+                <span contenteditable="true" class="editable-field flex-1 text-center border-b border-dotted border-gray-400"></span>
+             </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="flex justify-between items-start mt-4 pb-2">
+      <div class="flex items-end gap-2 w-[53.5%]">
+        <span>จำนวนเงินรวมทั้งสิ้น (ตัวอักษร)</span>
+        <span class="doc3-totalWords flex-1 text-center font-bold border-b border-dotted border-gray-400" contenteditable="true">-</span>
+      </div>
+      <div class="w-[45%] flex flex-col items-center text-[11pt]">
+        <div class="flex items-end w-full mb-1">
+          <span class="w-12">ลงชื่อ</span>
+          <span contenteditable="true" class="editable-field flex-1 text-center border-b border-dotted border-gray-400"></span>
+          <span class="w-20 text-right">ผู้จ่ายเงิน</span>
+        </div>
+        <div class="flex items-end w-full justify-center pl-12 pr-20 mb-1">
+          <span>(</span>
+          <span contenteditable="true" class="editable-field text-center flex-1 border-b border-dotted border-gray-400 doc3-payerName"></span>
+          <span>)</span>
+        </div>
+        <div class="flex items-end w-full pr-20">
+          <span class="w-16">ตำแหน่ง</span>
+          <span contenteditable="true" class="editable-field flex-1 text-center border-b border-dotted border-gray-400 doc3-payerPos"></span>
+        </div>
+        <div class="flex items-end w-full pr-20 mt-1">
+          <span class="w-16">วันที่</span>
+          <span contenteditable="true" class="editable-field flex-1 text-center border-b border-dotted border-gray-400 doc3-payerDate"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-[11pt] leading-relaxed mt-2">
+        <p class="font-bold underline">คำชี้แจง</p>
+        <ol class="list-decimal list-inside pl-12 leading-relaxed" style="list-style-type: thai;">
+            <li>ค่าเบี้ยเลี้ยงและค่าเช่าที่พักให้ระบุอัตราวันและจำนวนวันที่ขอเบิกของแต่ละบุคคลในช่องหมายเหตุ</li>
+            <li>ให้ผู้มีสิทธิแต่ละคนเป็นผู้ลงลายมือชื่อผู้รับเงินและวันเดือนปีที่ได้รับเงิน กรณีเป็นการรับจากเงินยืมให้ระบุวันที่ที่ได้รับเงินยืม</li>
+            <li>ผู้จ่ายเงินหมายถึงผู้ที่ขอยืมเงินจากทางราชการ และจ่ายเงินยืมนั้นให้แก่ผู้เดินทางแต่ละคน เป็นผู้ลงลายมือชื่อผู้จ่ายเงิน</li>
+        </ol>
+    </div>
+  </div>
+</div>
+
 <!-- Page 4: Approval Form -->
 <div id="approval-page" class="page-content hidden min-h-full py-6 px-4 bg-gray-50">
 <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6">
@@ -1544,8 +1779,17 @@ updateTrackingStatus();
 }
 }
 
-function printDocument(pageId) {
+function printDocument(pageId, orientation = 'portrait') {
+    // 1. สร้างแท็ก style ชั่วคราวเพื่อบอกเครื่องปริ้นท์ว่าเอา แนวตั้ง หรือ แนวนอน
+    const style = document.createElement('style');
+    style.innerHTML = `@page { size: A4 ${orientation}; margin: 0; }`;
+    document.head.appendChild(style);
+
+    // 2. สั่งพิมพ์ (เหมือนกด Ctrl+P)
     window.print();
+
+    // 3. พิมพ์เสร็จก็ลบการตั้งค่าทิ้ง เพื่อไม่ให้กระทบหน้าอื่น
+    style.remove();
 }
 
 function calculateTravelTime() {
@@ -1768,6 +2012,7 @@ function getFormData() {
 }
 
 // 2. ฟังก์ชันอัปเดตเอกสาร (ที่หุ้มด้วย toThaiNumerals แล้วทั้งหมด)
+// 2. ฟังก์ชันอัปเดตเอกสาร (ที่หุ้มด้วย toThaiNumerals แล้วทั้งหมด)
 function updateDocumentFromData(data) {
     // อัปเดตเอกสารส่วนที่ 1
     document.getElementById('doc-loanNumber').textContent = toThaiNumerals(data.loanNumber) || '-';
@@ -1845,6 +2090,19 @@ function updateDocumentFromData(data) {
     if (doc2PayeeName) doc2PayeeName.textContent = toThaiNumerals(data.fullName) || '-';
     if (doc2PayeePos) doc2PayeePos.textContent = toThaiNumerals(data.position) || '-';
     if (doc2PayeeDate) doc2PayeeDate.textContent = toThaiNumerals(buildDateString_TH(data.formDate, data.formMonth, data.formYear)) || '-';
+
+    // Sync ไปที่ Document 3 (ส่วนที่ 3 แนวนอน)
+    document.querySelectorAll('.doc3-fullName').forEach(el => el.textContent = toThaiNumerals(data.fullName) || '-');
+    document.querySelectorAll('.doc3-position').forEach(el => el.textContent = toThaiNumerals(data.position) || '-');
+    document.querySelectorAll('.doc3-meal').forEach(el => el.textContent = toThaiNumerals(data.mealTotal) || '-');
+    document.querySelectorAll('.doc3-lodging').forEach(el => el.textContent = toThaiNumerals(data.lodgingTotal) || '-');
+    document.querySelectorAll('.doc3-transport').forEach(el => el.textContent = toThaiNumerals(data.transportTotal) || '-');
+    document.querySelectorAll('.doc3-other').forEach(el => el.textContent = toThaiNumerals(data.otherTotal) || '-');
+    document.querySelectorAll('.doc3-total').forEach(el => el.textContent = toThaiNumerals(data.grandTotal) || '-');
+    document.querySelectorAll('.doc3-totalWords').forEach(el => el.textContent = data.grandTotalWords || '-');
+    
+    const doc3DateStr = buildDateString_TH(data.formDate, data.formMonth, data.formYear);
+    document.querySelectorAll('.doc3-date').forEach(el => el.textContent = toThaiNumerals(doc3DateStr) || '-');
 }
 
 function syncApprovalToDocument2() {
@@ -2505,16 +2763,155 @@ document.addEventListener('keydown', function(event) {
         // ถ้าหน้าเอกสารส่วนที่ 1 แสดงอยู่ ให้สั่งพิมพ์ส่วนที่ 1
         if (doc1Page && !doc1Page.classList.contains('hidden')) {
             event.preventDefault(); // ป้องกันการทำงานปริ้นท์ปกติของเบราว์เซอร์
-            printDocument('document-page');
+            printDocument('document-page', 'portrait');
         } 
         // ถ้าหน้าเอกสารส่วนที่ 2 แสดงอยู่ ให้สั่งพิมพ์ส่วนที่ 2
         else if (doc2Page && !doc2Page.classList.contains('hidden')) {
             event.preventDefault(); // ป้องกันการทำงานปริ้นท์ปกติของเบราว์เซอร์
-            printDocument('document2-page');
+            printDocument('document2-page', 'portrait');
         }
     }
 });
 
+// ==========================================
+// ระบบตรวจจับ Ctrl+P และตั้งค่าหน้ากระดาษอัตโนมัติ
+// ==========================================
+window.addEventListener('beforeprint', () => {
+    // 1. เช็คว่าเอกสารส่วนที่ 3 (แนวนอน) กำลังแสดงอยู่หรือไม่
+    const doc3Page = document.getElementById('document3-page');
+    // ถ้า doc3Page ไม่มีคลาส 'hidden' แสดงว่ากำลังเปิดหน้านี้อยู่
+    const isDoc3Active = doc3Page && !doc3Page.classList.contains('hidden');
+
+    // 2. สร้างหรือดึง <style> สำหรับคุมหน้ากระดาษ
+    let printStyle = document.getElementById('auto-print-orientation');
+    if (!printStyle) {
+        printStyle = document.createElement('style');
+        printStyle.id = 'auto-print-orientation';
+        document.head.appendChild(printStyle);
+    }
+
+    // 3. สั่งเปลี่ยนกระดาษตามหน้าที่เปิดอยู่
+    if (isDoc3Active) {
+        // ถ้าอยู่ส่วนที่ 3 ให้บังคับกระดาษเป็นแนวนอน
+        printStyle.innerHTML = '@page { size: A4 landscape !important; margin: 0 !important; }';
+    } else {
+        // ถ้าอยู่ส่วนที่ 1 หรือ 2 ให้บังคับกระดาษเป็นแนวตั้ง
+        printStyle.innerHTML = '@page { size: A4 portrait !important; margin: 0 !important; }';
+    }
+});
+
+// Function to convert Thai numerals to Arabic numerals
+    function thaiToArabic(thaiNum) {
+        if (!thaiNum) return '';
+        const thaiDigits = [/๐/g, /๑/g, /๒/g, /๓/g, /๔/g, /๕/g, /๖/g, /๗/g, /๘/g, /๙/g];
+        let arabicNum = thaiNum;
+        for (let i = 0; i < 10; i++) {
+            arabicNum = arabicNum.replace(thaiDigits[i], i);
+        }
+        return arabicNum;
+    }
+
+    // Function to convert Arabic numerals to Thai numerals
+    function arabicToThai(arabicNum) {
+        if (!arabicNum) return '';
+        const arabicDigits = [/0/g, /1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g];
+        const thaiDigits = ["๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙"];
+        let thaiNum = arabicNum;
+        for (let i = 0; i < 10; i++) {
+            thaiNum = thaiNum.replace(arabicDigits[i], thaiDigits[i]);
+        }
+        return thaiNum;
+    }
+
+    // ฟังก์ชันแปลงตัวเลขเป็นข้อความบาท (ภาษาไทย)
+    function getThaiBahtText(amount) {
+        if (amount === 0) return "-";
+        const numberText = ["ศูนย์", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก", "เจ็ด", "แปด", "เก้า"];
+        const unitText = ["", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "ล้าน"];
+        let amountStr = parseFloat(Math.abs(amount)).toFixed(2);
+        let parts = amountStr.split('.');
+        
+        let processPart = (str) => {
+            let result = "";
+            let len = str.length;
+            for (let i = 0; i < len; i++) {
+                let digit = parseInt(str.charAt(i));
+                let position = len - i - 1;
+                if (digit !== 0) {
+                    if (position === 1 && digit === 1) result += "สิบ";
+                    else if (position === 1 && digit === 2) result += "ยี่สิบ";
+                    else if (position === 0 && digit === 1 && len > 1 && str.charAt(i-1) !== '0') result += "เอ็ด";
+                    else result += numberText[digit] + unitText[position % 6];
+                    
+                    if (position > 0 && position % 6 === 0) result += "ล้าน";
+                }
+            }
+            return result;
+        };
+
+        let bahtText = processPart(parts[0]) + "บาท";
+        let satangText = parseInt(parts[1]) === 0 ? "ถ้วน" : processPart(parts[1]) + "สตางค์";
+        return bahtText + satangText;
+    }
+
+    function parseNumber(text) {
+        const arabicText = thaiToArabic(text || '').replace(/,/g, '');
+        const number = parseFloat(arabicText);
+        return isNaN(number) ? 0 : number;
+    }
+
+    function formatNumber(number) {
+        if (number === 0) return '';
+        const formattedArabic = number.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        return arabicToThai(formattedArabic);
+    }
+
+    function calculateTotals() {
+        const expenseRows = document.querySelectorAll('.expense-row');
+        let grandMealTotal = 0;
+        let grandLodgingTotal = 0;
+        let grandTransportTotal = 0;
+        let grandOtherTotal = 0;
+        let grandTotal = 0;
+
+        expenseRows.forEach(row => {
+            const meal = parseNumber(row.querySelector('.meal-input').textContent);
+            const lodging = parseNumber(row.querySelector('.lodging-input').textContent);
+            const transport = parseNumber(row.querySelector('.transport-input').textContent);
+            const other = parseNumber(row.querySelector('.other-input').textContent);
+
+            const rowTotal = meal + lodging + transport + other;
+            row.querySelector('.row-total').textContent = formatNumber(rowTotal);
+
+            grandMealTotal += meal;
+            grandLodgingTotal += lodging;
+            grandTransportTotal += transport;
+            grandOtherTotal += other;
+            grandTotal += rowTotal;
+        });
+
+        document.querySelector('.grand-meal-total').textContent = formatNumber(grandMealTotal);
+        document.querySelector('.grand-lodging-total').textContent = formatNumber(grandLodgingTotal);
+        document.querySelector('.grand-transport-total').textContent = formatNumber(grandTransportTotal);
+        document.querySelector('.grand-other-total').textContent = formatNumber(grandOtherTotal);
+        document.querySelector('.grand-total').textContent = formatNumber(grandTotal);
+        
+        const totalWordsElement = document.querySelector('.doc3-totalWords');
+        if (totalWordsElement) {
+            // แก้ไขตรงนี้: เรียกใช้ฟังก์ชัน getThaiBahtText เพื่อแปลงตัวเลขยอดรวมเป็นอักษรไทย
+            totalWordsElement.textContent = grandTotal > 0 ? getThaiBahtText(grandTotal) : '-';
+        }
+    }
+
+    document.addEventListener('input', (e) => {
+        if (e.target.classList.contains('expense-input')) {
+            calculateTotals();
+        }
+    });
+
+    // Initial calculation
+    window.addEventListener('load', calculateTotals);
+    
 init();
 </script>
 </body>
