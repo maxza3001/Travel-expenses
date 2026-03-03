@@ -972,15 +972,26 @@ font-size: 0.875rem;
       </div>
     </div>
 
-    <div class="flex-1 p-3 flex flex-col relative overflow-hidden">
-      <div class="flex items-end mb-2 relative z-10 bg-white">
-        <span class="font-bold mr-2">หมายเหตุ</span>
-        <span contenteditable="true" class="editable-field doc2-notes flex-1 text-black"></span>
-      </div>
-      <div class="flex flex-col gap-4 mt-1">
-        <div contenteditable="true" class="editable-field w-full block text-transparent select-none">.</div>
-        <div contenteditable="true" class="editable-field w-full block text-transparent select-none">.</div>
-        <div contenteditable="true" class="editable-field w-full block text-transparent select-none">.</div>
+    <div class="flex-1 p-3 w-full">
+      <div class="relative w-full h-[252px] leading-[28px] overflow-hidden">
+        
+        <div class="absolute left-0 right-0 top-[-4.5px] z-0 pointer-events-none flex flex-col">
+          <div class="h-[28px] border-b border-dotted border-gray-400"></div>
+          <div class="h-[28px] border-b border-dotted border-gray-400"></div>
+          <div class="h-[28px] border-b border-dotted border-gray-400"></div>
+          <div class="h-[28px] border-b border-dotted border-gray-400"></div>
+          <div class="h-[28px] border-b border-dotted border-gray-400"></div>
+          <div class="h-[28px] border-b border-dotted border-gray-400"></div>
+          <div class="h-[28px] border-b border-dotted border-gray-400"></div>
+          <div class="h-[28px] border-b border-dotted border-gray-400"></div>
+          <div class="h-[28px] border-b border-dotted border-gray-400"></div>
+        </div>
+
+        <div class="relative z-10 w-full text-[15pt]">
+          <span class="font-bold mr-1 bg-white pr-2">หมายเหตุ</span>
+          <span contenteditable="true" class="editable-field doc2-notes inline break-words whitespace-normal outline-none bg-transparent text-black text-left"></span>
+        </div>
+        
       </div>
     </div>
 
@@ -1011,7 +1022,7 @@ font-size: 0.875rem;
 <div id="document3-page" class="page-content hidden py-4 px-2">
   <div class="print-button-container max-w-5xl mx-auto mb-4 flex gap-2 justify-end">
     <button onclick="printDocument('document3-page', 'landscape')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
-      🖨️ พิมพ์แนวนอน
+      🖨️ พิมพ์ส่วนที่ 3
     </button>
   </div>
   
@@ -1035,17 +1046,17 @@ font-size: 0.875rem;
       </div>
       <div class="flex items-end gap-2 mt-1">
         <span>ประกอบใบเบิกค่าใช้จ่ายในการเดินทางของ</span>
-        <span contenteditable="true" class="editable-field text-center flex-1 border-b border-dotted border-gray-400">-</span>
+        <span contenteditable="true" class="editable-field text-center flex-1 border-b border-dotted border-gray-400"></span>
         <span>ลงวันที่</span>
-        <span contenteditable="true" class="editable-field text-center w-[100px] border-b border-dotted border-gray-400">-</span>
+        <span contenteditable="true" class="editable-field text-center w-[100px] border-b border-dotted border-gray-400"></span>
         <span>เดือน</span>
-        <span contenteditable="true" class="editable-field text-center w-[150px] border-b border-dotted border-gray-400">-</span>
+        <span contenteditable="true" class="editable-field text-center w-[150px] border-b border-dotted border-gray-400"></span>
         <span>พ.ศ.</span>
-        <span contenteditable="true" class="editable-field text-center w-[100px] border-b border-dotted border-gray-400">-</span>
+        <span contenteditable="true" class="editable-field text-center w-[100px] border-b border-dotted border-gray-400"></span>
       </div>
     </div>
 
-    <table class="w-full border-collapse border border-black text-center mb-0 text-[11pt] table-fixed">
+    <table class="w-full border-collapse border border-black text-center mb-0 text-[11pt]">
       <thead>
         <tr>
           <th class="border border-black font-normal p-1 w-12" rowspan="2">ลำดับ<br>ที่</th>
@@ -1053,9 +1064,9 @@ font-size: 0.875rem;
           <th class="border border-black font-normal p-1 w-24" rowspan="2">ตำแหน่ง</th>
           <th class="border border-black font-normal p-1" colspan="4">ค่าใช้จ่าย</th>
           <th class="border border-black font-normal p-1 w-24" rowspan="2">รวม</th>
-          <th class="border border-black font-normal p-1 w-24" rowspan="2">ลายมือชื่อ<br>ผู้รับเงิน</th>
-          <th class="border border-black font-normal p-1 w-24" rowspan="2">วัน เดือน ปี<br>ที่รับเงิน</th>
-          <th class="border border-black font-normal p-1 w-32" rowspan="2">หมายเหตุ</th>
+          <th class="border border-black font-normal p-1 w-20" rowspan="2">ลายมือชื่อ<br>ผู้รับเงิน</th>
+          <th class="border border-black font-normal p-1 w-20" rowspan="2">วัน เดือน ปี<br>ที่รับเงิน</th>
+          <th class="border border-black font-normal p-1 w-28" rowspan="2">หมายเหตุ</th>
         </tr>
         <tr>
           <th class="border border-black font-normal p-1 w-20">ค่าเบี้ยเลี้ยง</th>
@@ -1174,11 +1185,11 @@ font-size: 0.875rem;
         <tr class="h-[32px] align-middle">
           <td class="border border-black border-r-0 overflow-hidden whitespace-nowrap text-ellipsis" contenteditable="true"></td>
           <td class="border border-black border-l-0 text-right pr-4" colspan="2">รวมเงิน</td>
-          <td class="border border-black text-right px-2 grand-meal-total overflow-hidden whitespace-nowrap text-ellipsis text-[9pt]" contenteditable="true"></td>
-          <td class="border border-black text-right px-2 grand-lodging-total overflow-hidden whitespace-nowrap text-ellipsis text-[9pt]" contenteditable="true"></td>
-          <td class="border border-black text-right px-2 grand-transport-total overflow-hidden whitespace-nowrap text-ellipsis text-[9pt]" contenteditable="true"></td>
-          <td class="border border-black text-right px-2 grand-other-total overflow-hidden whitespace-nowrap text-ellipsis text-[9pt]" contenteditable="true"></td>
-          <td class="border border-black text-right px-2 grand-total overflow-hidden whitespace-nowrap text-ellipsis text-[11pt]" contenteditable="true"></td>
+          <td class="border border-black text-center px-2 grand-meal-total overflow-hidden whitespace-nowrap text-ellipsis font-bold text-[11pt]" contenteditable="true"></td>
+          <td class="border border-black text-center px-2 grand-lodging-total overflow-hidden whitespace-nowrap text-ellipsis font-bold text-[11pt]" contenteditable="true"></td>
+          <td class="border border-black text-center px-2 grand-transport-total overflow-hidden whitespace-nowrap text-ellipsis font-bold text-[11pt]" contenteditable="true"></td>
+          <td class="border border-black text-center px-2 grand-other-total overflow-hidden whitespace-nowrap text-ellipsis font-bold text-[11pt]" contenteditable="true"></td>
+          <td class="border border-black text-center px-2 grand-total overflow-hidden whitespace-nowrap text-ellipsis font-bold text-[11pt]" contenteditable="true"></td>
           <td class="border-t border-black" colspan="3">
              <div class="flex items-center px-2">
                 <span>ตามสัญญาเงินยืมเลขที่</span>
@@ -2641,15 +2652,35 @@ function toThaiNumerals(text) {
     // ค้นหาตัวเลข 0-9 ทุกตัวในข้อความ แล้วแทนที่ด้วยเลขไทย
     return text.toString().replace(/\d/g, (match) => thaiNumbers[match]);
 }
-// ดักจับการพิมพ์แก้บนหน้าเอกสาร: แปลงเลขอารบิกเป็นเลขไทยเมื่อพิมพ์เสร็จแล้วคลิกออก
-document.addEventListener('focusout', function(e) {
-    if (e.target.hasAttribute('contenteditable') || e.target.classList.contains('editable-field')) {
-        if (/\d/.test(e.target.textContent)) {
-            e.target.textContent = toThaiNumerals(e.target.textContent);
+// ==========================================
+    // ระบบแปลงเลขไทยอัตโนมัติเมื่อคลิกออกนอกช่อง (ครอบคลุมทั้งหน้าเอกสาร)
+    // ==========================================
+    document.addEventListener('focusout', (e) => {
+        // เช็คว่าช่องที่เพิ่งคลิกออก เป็นช่องที่แก้ไขได้ (contenteditable) หรือไม่
+        if (e.target.hasAttribute('contenteditable')) {
+            
+            // กรณีที่ 1: เป็นช่องกรอกตัวเลขในตารางค่าใช้จ่าย (คำนวณยอด + ใส่ลูกน้ำ + เลขไทย)
+            if (e.target.classList.contains('expense-input')) {
+                const text = e.target.textContent.trim();
+                if (text !== '') {
+                    const number = parseNumber(text);
+                    e.target.textContent = number === 0 ? '' : formatNumber(number);
+                }
+                calculateTotals();
+            } 
+            // กรณีที่ 2: เป็นช่องข้อความอื่นๆ ทั่วไปทั้งหน้า (แปลงอารบิก 0-9 เป็น ๐-๙ อย่างเดียว)
+            else {
+                const originalText = e.target.textContent;
+                if (originalText) {
+                    const thaiText = arabicToThai(originalText);
+                    // ถ้ามีเลขอารบิกปนอยู่ ให้เปลี่ยนเป็นเลขไทย
+                    if (originalText !== thaiText) {
+                        e.target.textContent = thaiText;
+                    }
+                }
+            }
         }
-    }
-});
-
+    });
 // ฟังก์ชันดาวน์โหลด PDF (ฉบับแก้ปัญหาหน้าว่าง + แก้ค่าเพี้ยน)
 function downloadPDF(pageId, filename) {
     const originalElement = document.querySelector(`#${pageId} .print-container`);
@@ -2860,9 +2891,19 @@ window.addEventListener('beforeprint', () => {
         return isNaN(number) ? 0 : number;
     }
 
+    // ฟังก์ชันจัดรูปแบบตัวเลข (อัปเดต: ไม่บังคับใส่ทศนิยม .00)
     function formatNumber(number) {
         if (number === 0) return '';
-        const formattedArabic = number.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        
+        // เช็คว่าตัวเลขนี้มีเศษทศนิยมหรือไม่ (ถ้าหาร 1 แล้วเหลือเศษ แปลว่ามีทศนิยม)
+        const hasDecimal = number % 1 !== 0;
+        
+        // ถ้ามีเศษทศนิยมให้แสดง 2 ตำแหน่ง (เช่น .50) ถ้าไม่มีเศษให้แสดงเป็นจำนวนเต็ม (0 ตำแหน่ง)
+        const formattedArabic = number.toLocaleString('en-US', { 
+            minimumFractionDigits: hasDecimal ? 2 : 0, 
+            maximumFractionDigits: 2 
+        });
+        
         return arabicToThai(formattedArabic);
     }
 
