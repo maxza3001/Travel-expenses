@@ -75,11 +75,12 @@
     margin: 0 !important;
     padding: 0 !important;
   }
-  .a4-paper {
+  .a4-paper, .a4-landscape-paper {
     margin: 0 !important;
     box-shadow: none !important;
-    border: none !important;
-    page-break-after: always;
+    width: 100% !important; /* ใช้เต็มความกว้าง */
+    page-break-after: avoid; /* ป้องกันการขึ้นหน้าใหม่โดยไม่จำเป็น */
+    page-break-inside: avoid;
   }
   .no-print, .print-button-container {
     display: none !important;
@@ -201,27 +202,27 @@ font-size: 0.875rem;
 </style>
 <style>body { box-sizing: border-box; }</style>
 </head>
-<body class="h-full overflow-auto bg-gray-100">
+<body class="h-full overflow-auto bg-blue-100">
 <div class="min-h-full" style="height: 100%;">
 <!-- Navigation Tabs -->
 <div class="no-print sticky top-0 bg-white border-b border-gray-200 shadow-sm z-50">
-<div class="max-w-6xl mx-auto px-4 flex gap-0 flex-wrap overflow-x-auto">
-<button onclick="showPage('form')" class="page-tab px-4 py-3 font-semibold border-b-2 border-blue-600 text-blue-600 text-sm whitespace-nowrap" data-page="form"> 📋 ฟอร์มกรอก </button>
-<button onclick="showPage('document')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="document"> 📄 เอกสารส่วนที่ 1 </button>
-<button onclick="showPage('document2')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="document2"> 📄 เอกสารส่วนที่ 2 </button>
-<button onclick="showPage('document3')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="document3"> 📄 เอกสารส่วนที่ 3 </button>
-<button onclick="showPage('approval')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="approval"> ✅ ฟอร์มอนุมัติ </button>
-<button onclick="showPage('tracking')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="tracking"> 📊 ติดตามสถานะ </button>
-</div>
+  <div class="max-w-6xl mx-auto px-4 flex justify-center gap-0 flex-wrap overflow-x-auto">
+    <button onclick="showPage('form')" class="page-tab px-4 py-3 font-semibold border-b-2 border-blue-600 text-blue-600 text-sm whitespace-nowrap" data-page="form"> 📋 ฟอร์มกรอก </button>
+    <button onclick="showPage('document')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="document"> 📄 เอกสารส่วนที่ 1 </button>
+    <button onclick="showPage('document2')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="document2"> 📄 เอกสารส่วนที่ 2 </button>
+    <button onclick="showPage('document3')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="document3"> 📄 เอกสารส่วนที่ 3 </button>
+    <button onclick="showPage('approval')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="approval"> ✅ ฟอร์มอนุมัติ </button>
+    <button onclick="showPage('tracking')" class="page-tab px-4 py-3 font-semibold border-b-2 border-transparent text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap" data-page="tracking"> 📊 ติดตามสถานะ </button>
+  </div>
 </div>
 
 <!-- Page 1: Form -->
-<div id="form-page" class="page-content min-h-full py-6 px-4 bg-gray-50">
+<div id="form-page" class="page-content min-h-full py-6 px-4 bg-blue-100">
 <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6">
 <h1 class="text-2xl font-bold text-center mb-6 text-blue-900">กรอกข้อมูลการเดินทางราชการ</h1>
 <form id="expense-form" class="space-y-6">
 <!-- Section 1: Loan Info -->
-<fieldset class="border rounded-lg p-4 bg-blue-50">
+<fieldset class="border rounded-lg p-4 bg-pink-50">
 <legend class="text-lg font-semibold text-blue-900 px-2">📌 ข้อมูลเงินยืม</legend>
 <div class="grid grid-cols-1 gap-4 mt-4">
   <div>
@@ -577,7 +578,14 @@ font-size: 0.875rem;
 <button type="submit" class="px-8 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors shadow-lg"> บันทึกและดูเอกสาร </button>
 </div>
 </form>
+
 <div id="save-message" class="mt-4 p-3 rounded hidden text-center font-semibold"></div>
+</div>
+<div class="text-center py-12">
+<p class="text-gray-500 text-lg font-bold">👨‍💻 พัฒนาโดย นางสาวพรรณลิณี แผนเมือง</p>
+<p class="text-gray-400 text-sm">นักวิชาการเงินและบัญชี</p>
+<p class="text-gray-400 text-sm">กลุ่มงานวิชาการ</p>
+<p class="text-gray-400 text-sm">สำนักงานคลังจังหวัดสกลนคร</p>
 </div>
 </div>
 
@@ -836,6 +844,7 @@ font-size: 0.875rem;
       </div>
     </div>
   </div>
+
 </div>
 
 <div id="document2-page" class="page-content hidden py-4 px-2">
@@ -1016,6 +1025,7 @@ font-size: 0.875rem;
     </div>
 
   </div>
+ 
 </div>
 
 
@@ -1238,15 +1248,16 @@ font-size: 0.875rem;
         </ol>
     </div>
   </div>
+ 
 </div>
 
 <!-- Page 4: Approval Form -->
-<div id="approval-page" class="page-content hidden min-h-full py-6 px-4 bg-gray-50">
+<div id="approval-page" class="page-content hidden min-h-full py-6 px-4 bg-blue-100">
 <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6">
 <h1 class="text-2xl font-bold text-center mb-6 text-green-900">📋 ฟอร์มอนุมัติ</h1>
 <form id="approval-form" class="space-y-6">
 <!-- Section 1: Request Details -->
-<fieldset class="border rounded-lg p-4 bg-blue-50">
+<fieldset class="border rounded-lg p-4 bg-pink-50">
 <legend class="text-lg font-semibold text-blue-900 px-2">📋 รายละเอียดคำขออนุมัติ</legend>
 <div class="grid grid-cols-1 gap-4 mt-4">
 <div>
@@ -1489,7 +1500,9 @@ font-size: 0.875rem;
 		</div>
 		</div>
 		</div>
+    
 		</div>
+    
 		</fieldset>
 
 
@@ -1505,10 +1518,16 @@ font-size: 0.875rem;
 </form>
 <div id="approval-message" class="mt-4 p-3 rounded hidden text-center font-semibold"></div>
 </div>
+<div class="text-center py-12">
+<p class="text-gray-500 text-lg font-bold">👨‍💻 พัฒนาโดย นางสาวพรรณลิณี แผนเมือง</p>
+<p class="text-gray-400 text-sm">นักวิชาการเงินและบัญชี</p>
+<p class="text-gray-400 text-sm">กลุ่มงานวิชาการ</p>
+<p class="text-gray-400 text-sm">สำนักงานคลังจังหวัดสกลนคร</p>
+</div>
 </div>
 
 <!-- Page 5: Tracking & Status -->
-<div id="tracking-page" class="page-content hidden min-h-full py-6 px-4 bg-gray-50">
+<div id="tracking-page" class="page-content hidden min-h-full py-6 px-4 bg-blue-100">
 <div class="max-w-4xl mx-auto">
 <!-- Status Summary Section -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -1571,7 +1590,14 @@ font-size: 0.875rem;
 </div>
 </div>
 </div>
+<div class="text-center py-12">
+<p class="text-gray-500 text-lg font-bold">👨‍💻 พัฒนาโดย นางสาวพรรณลิณี แผนเมือง</p>
+<p class="text-gray-400 text-sm">นักวิชาการเงินและบัญชี</p>
+<p class="text-gray-400 text-sm">กลุ่มงานวิชาการ</p>
+<p class="text-gray-400 text-sm">สำนักงานคลังจังหวัดสกลนคร</p>
 </div>
+</div>
+
 </div>
 </div>
 
